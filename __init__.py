@@ -2,14 +2,14 @@
 Denis Rouzaud
 denis.rouzaud@gmail.com
 * * * * * * * * * * * *
-Link It 
+Custom Launcher
 QGIS module
 
 """
 def name():
-    return "Action Customizer"
+    return "Custom Launcher"
 def description():
-    return ""
+    return "A QGIS plugin to customize actions to launch your preferred apps or commands from QGIS."
 def version():
     return "Version 1.0.0"
 def icon():
@@ -17,5 +17,5 @@ def icon():
 def qgisMinimumVersion():
     return "1.7"
 def classFactory(iface):
-    from customizer import customizer
-    return customizer(iface)
+    from customlauncher import customLauncher
+    return customLauncher(iface)
