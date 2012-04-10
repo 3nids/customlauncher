@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/customlauncher" >
+        <file>icons/help.png</file>
+    </qresource>
+</RCC>
