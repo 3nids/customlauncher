@@ -1,0 +1,20 @@
+# This file contains metadata for your plugin. Beginning
+# with version 1.8 this is the preferred way to supply information about a
+# plugin. The current method of embedding metadata in __init__.py will
+# be supported until version 2.0
+
+# This file should be included when you package your plugin.
+
+[general]
+name=Custom Launcher
+description=Customize your own actions to launch your preferred apps or commands within QGIS.
+version=1.0.0
+qgisMinimumVersion=1.7
+
+tags=search
+homepage=https://github.com/3nids/customlauncher/wiki
+tracker=https://github.com/3nids/customlauncher/issues
+repository=https://github.com/3nids/customlauncher
+[author]
+name=Denis Rouzaud
+email=denis.rouzaud@gmail.com
