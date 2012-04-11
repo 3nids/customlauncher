@@ -3,8 +3,6 @@
 # plugin. The current method of embedding metadata in __init__.py will
 # be supported until version 2.0
 
-# This file should be included when you package your plugin.
-
 [general]
 name=Custom Launcher
 description=Customize your own actions to launch your preferred apps or commands within QGIS.
