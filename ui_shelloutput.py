@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_shelloutput.ui'
 #
-# Created: Wed Apr 11 08:45:39 2012
+# Created: Wed Apr 11 09:16:22 2012
 #      by: PyQt4 UI code generator 4.8.5
 #
 # WARNING! All changes made in this file will be lost!
@@ -22,6 +22,10 @@ class Ui_shellOutput(object):
         self.gridLayout = QtGui.QGridLayout(shellOutput)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
         self.textBrowser = QtGui.QTextBrowser(shellOutput)
+        font = QtGui.QFont()
+        font.setFamily(_fromUtf8("Courier New"))
+        font.setPointSize(9)
+        self.textBrowser.setFont(font)
         self.textBrowser.setObjectName(_fromUtf8("textBrowser"))
         self.gridLayout.addWidget(self.textBrowser, 0, 0, 1, 1)
 

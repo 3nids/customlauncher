@@ -45,7 +45,7 @@ class customLauncherSettings(QDialog, Ui_Settings):
 			self.settings.setValue( "action_%u"  % i ,     action.actionEdit.text()     )
 			self.settings.setValue( "shell_%u"   % i , int(action.shellBox.isChecked()) )
 			self.settings.setValue( "tooltip_%u" % i ,     action.tooltipEdit.text()    )
-	
+
 	def deleteAction(self,actionIndex):
 		self.actions.pop(actionIndex)
 		for actionIndex,action in enumerate(self.actions):
