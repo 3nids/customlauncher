@@ -20,7 +20,9 @@ import resources
 import subprocess as sb
 # split the command args when no shell
 # see 17.1.1.2 in http://docs.python.org/library/subprocess.html
-import shlex 
+import shlex
+# check that file exists
+import os.path
 
 try:
     _fromUtf8 = QString.fromUtf8
@@ -41,11 +43,11 @@ class customLauncher():
 		self.toolBar = self.iface.addToolBar("Custom Launcher")
 		self.toolBar.setObjectName("Custom Launcher")
 		# Settings
-		self.settingsAction = QAction("Settings", self.iface.mainWindow())
+		self.settingsAction = QAction(QIcon(":/plugins/customlauncher/icons/settings.png"), "Settings", self.iface.mainWindow())
 		QObject.connect(self.settingsAction, SIGNAL("triggered()"), self.settingsDialog.exec_)
 		self.iface.addPluginToMenu("&Custom Launcher", self.settingsAction)
 		# help
-		self.helpAction = QAction(QIcon(":/plugins/linkit/icons/help.png"), "Help", self.iface.mainWindow())
+		self.helpAction = QAction(QIcon(":/plugins/customlauncher/icons/help.png"), "Help", self.iface.mainWindow())
 		QObject.connect(self.helpAction, SIGNAL("triggered()"), lambda: QDesktopServices.openUrl(QUrl("https://github.com/3nids/customlauncher/wiki")))
 		self.iface.addPluginToMenu("&Custom Launcher", self.helpAction)
 		# launch actions
@@ -75,6 +77,8 @@ class actionItem(QAction):
 		self.tooltip   =      settings.value( "tooltip_%u" % actionIndex , "").toString()
 		self.shellMode = bool(settings.value( "shell_%u"   % actionIndex , False).toInt()[0])
 		# create action
+		if self.icon == "" or os.path.isfile(self.icon) is False:
+			self.icon = "icons/customlauncher.png"
 		QAction.__init__(self , QIcon(self.icon) , self.tooltip , iface.mainWindow())
 		QObject.connect( self , SIGNAL("triggered()"), self.run )
 		toolBar.addAction(self)

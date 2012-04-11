@@ -8,10 +8,11 @@
 [general]
 name=Custom Launcher
 description=Customize your own actions to launch your preferred apps or commands within QGIS.
-version=1.0.0
+version=1.1.0
 qgisMinimumVersion=1.7
+icon=icons/customlauncher.png
 
-tags=search
+tags=launch,application,shell,bash,run
 homepage=https://github.com/3nids/customlauncher/wiki
 tracker=https://github.com/3nids/customlauncher/issues
 repository=https://github.com/3nids/customlauncher

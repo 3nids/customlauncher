@@ -1,3 +1,12 @@
 **Custom Launcher** is a [QGIS](http://www.qgis.org) plugin to customize actions to launch your preferred apps or commands within QGIS.
 
 See the demo on [youtube](http://www.youtube.com/v/B6811zAuXhw&hd=1) to know how it works!
+
+
+
+### Changelog
+
+**1.1.0** 11.04.2012
+
+* Added icon to the plugin
+* Default icon if action's icon is not found
