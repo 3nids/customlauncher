@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>522</width>
-    <height>107</height>
+    <height>95</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -20,12 +20,18 @@
    <string>action</string>
   </property>
   <property name="frameShape">
-   <enum>QFrame::StyledPanel</enum>
+   <enum>QFrame::Box</enum>
   </property>
-  <property name="frameShadow">
-   <enum>QFrame::Raised</enum>
+  <property name="lineWidth">
+   <number>1</number>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <property name="margin">
+    <number>6</number>
+   </property>
+   <property name="spacing">
+    <number>3</number>
+   </property>
    <item row="0" column="1">
     <widget class="QLabel" name="label">
      <property name="font">
@@ -38,7 +44,7 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="2">
+   <item row="0" column="2" colspan="2">
     <widget class="QLineEdit" name="iconEdit">
      <property name="font">
       <font>
@@ -47,8 +53,11 @@
      </property>
     </widget>
    </item>
-   <item row="0" column="3">
+   <item row="0" column="4">
     <widget class="QToolButton" name="iconButton">
+     <property name="toolTip">
+      <string>Load an icon</string>
+     </property>
      <property name="text">
       <string>...</string>
      </property>
@@ -87,7 +96,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="2">
+   <item row="2" column="2" colspan="3">
     <widget class="QLineEdit" name="tooltipEdit">
      <property name="font">
       <font>
@@ -98,8 +107,21 @@
    </item>
    <item row="1" column="0">
     <widget class="QToolButton" name="deleteButton">
+     <property name="toolTip">
+      <string>Delete this action</string>
+     </property>
      <property name="text">
       <string>x</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="3" colspan="2">
+    <widget class="QCheckBox" name="shellBox">
+     <property name="toolTip">
+      <string>This will launch the action in a terminal</string>
+     </property>
+     <property name="text">
+      <string>shell</string>
      </property>
     </widget>
    </item>

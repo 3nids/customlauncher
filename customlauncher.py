@@ -11,8 +11,9 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
 from settings import customLauncherSettings
+from ui_shelloutput import Ui_shellOutput
 import resources
-import subprocess
+import subprocess as sb
 
 try:
     _fromUtf8 = QString.fromUtf8
@@ -27,6 +28,7 @@ class customLauncher():
 		QObject.connect( self.settingsDialog , SIGNAL("accepted()") , self.loadActions )
 		self.settings = QSettings("CustomLauncher","CustomLauncher")
 		self.actions = []
+		self.shellOutput = shellOutput()
 	
 	def initGui(self):
 		# Custom toolbar
@@ -56,14 +58,27 @@ class customLauncher():
 		self.unloadActions()
 		numActions = self.settings.value( "number_of_actions" , 0 ).toInt()[0]
 		for i in range(numActions):
+			# load action
 			ico = self.settings.value( "icon_%u"    % i , "").toString()
 			act = self.settings.value( "action_%u"  % i , "").toString()
 			too = self.settings.value( "tooltip_%u" % i , "").toString()
-			
-			print act
-
+			shellMode = bool(self.settings.value( "shell_%u"   % i , False).toInt()[0])
+			if shellMode is True:
+				actionLambda = lambda: self.shellAction(act)
+			else:
+				actionLambda = lambda: sb.call( "%s" % act )
+			# create action
 			action = QAction(QIcon(ico), too , self.iface.mainWindow())
-			QObject.connect( action, SIGNAL("triggered()"), lambda: subprocess.call( "%s" % act ) )
+			QObject.connect( action, SIGNAL("triggered()"), actionLambda )
 			self.toolBar.addAction(action)
 			self.actions.append(action)
 			
+	def shellAction(self,cmd):
+		output = sb.Popen( "%s" % cmd , shell=True , stdout = sb.PIPE, stderr= sb.PIPE).communicate()
+		self.shellOutput.textBrowser.setText(''.join(output))
+		self.shellOutput.show()
+
+class shellOutput(QDialog, Ui_shellOutput):
+	def __init__(self):
+		QDialog.__init__(self)
+		self.setupUi(self)

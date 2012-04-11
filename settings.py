@@ -30,9 +30,10 @@ class customLauncherSettings(QDialog, Ui_Settings):
 		numActions = self.settings.value( "number_of_actions" , 0 ).toInt()[0]
 		for i in range(numActions):
 			action = actionItem(i)
-			action.iconEdit.setText(    self.settings.value( "icon_%u"    % i , "").toString() )
-			action.actionEdit.setText(  self.settings.value( "action_%u"  % i , "").toString() )
-			action.tooltipEdit.setText( self.settings.value( "tooltip_%u" % i , "").toString() )
+			action.iconEdit.setText(    self.settings.value( "icon_%u"    % i , ""   ).toString() )
+			action.actionEdit.setText(  self.settings.value( "action_%u"  % i , ""   ).toString() )
+			action.shellBox.setChecked( self.settings.value( "shell_%u"   % i , False).toInt()[0] )
+			action.tooltipEdit.setText( self.settings.value( "tooltip_%u" % i , ""   ).toString() )
 			QObject.connect(action,SIGNAL("actionDeleted(int)"),self.deleteAction)
 			self.actionsLayout.addWidget(action)
 			self.actions.append(action)
@@ -40,9 +41,10 @@ class customLauncherSettings(QDialog, Ui_Settings):
 	def applySettings(self):
 		self.settings.setValue( "number_of_actions" , len(self.actions) )
 		for i,action in enumerate(self.actions):
-			self.settings.setValue( "icon_%u"    % i , action.iconEdit.text() )
-			self.settings.setValue( "action_%u"  % i , action.actionEdit.text() )
-			self.settings.setValue( "tooltip_%u" % i , action.tooltipEdit.text() )
+			self.settings.setValue( "icon_%u"    % i ,     action.iconEdit.text()       )
+			self.settings.setValue( "action_%u"  % i ,     action.actionEdit.text()     )
+			self.settings.setValue( "shell_%u"   % i , int(action.shellBox.isChecked()) )
+			self.settings.setValue( "tooltip_%u" % i ,     action.tooltipEdit.text()    )
 	
 	def deleteAction(self,actionIndex):
 		self.actions.pop(actionIndex)
