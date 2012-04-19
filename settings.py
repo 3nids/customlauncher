@@ -28,6 +28,7 @@ class customLauncherSettings(QDialog, Ui_Settings):
 		self.actions  = []
 
 	def showEvent(self,e):
+		for i in range(self.actionsLayout.count()): self.actionsLayout.itemAt(i).widget().close()
 		self.actions  = []
 		numActions = self.settings.value( "number_of_actions" , 0 ).toInt()[0]
 		for i in range(numActions):
