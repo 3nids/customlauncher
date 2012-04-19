@@ -6,7 +6,7 @@
 [general]
 name=Custom Launcher
 description=Customize your own actions to launch your preferred apps or commands within QGIS.
-version=1.1.0
+version=1.1.1
 qgisMinimumVersion=1.7
 icon=icons/customlauncher.png
 
