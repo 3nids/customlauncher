@@ -6,7 +6,13 @@ See the demo on [youtube](http://www.youtube.com/v/B6811zAuXhw&hd=1) to know how
 
 ### Changelog
 
+**1.2.0** 02.05.2012
+
+* Can now manage order of actions
+* Deletion confirmation
+
 **1.1.1** 18.04.2012
+
 * Bugfix: clear settings dialog to prevent duplication
 
 **1.1.0** 11.04.2012
