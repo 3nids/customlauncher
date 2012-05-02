@@ -10,8 +10,8 @@ QGIS plugin
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
-# settings dialog
-from settings import customLauncherSettings
+# action manager dialog
+from action_manager import actionManager
 # output dialog for shell command
 from ui_shelloutput import Ui_shellOutput
 # icons
@@ -33,7 +33,7 @@ class customLauncher():
 
 	def __init__(self, iface):
 		self.iface = iface
-		self.settingsDialog = customLauncherSettings()
+		self.settingsDialog = actionManager(iface)
 		QObject.connect( self.settingsDialog , SIGNAL("accepted()") , self.loadActions )
 		self.settings = QSettings("CustomLauncher","CustomLauncher")
 		self.actions = []
