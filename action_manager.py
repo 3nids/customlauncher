@@ -9,7 +9,7 @@ QGIS plugin
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
-from ui_settings import Ui_Settings
+from ui_actionmanager import Ui_ActionManager
 from ui_action   import Ui_Action
 
 try:

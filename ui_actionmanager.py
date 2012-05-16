@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'ui_settings.ui'
+# Form implementation generated from reading ui file 'ui_actionmanager.ui'
 #
-# Created: Wed Apr 11 08:20:08 2012
-#      by: PyQt4 UI code generator 4.8.5
+# Created: Tue May 15 16:08:30 2012
+#      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
 
@@ -14,23 +14,21 @@ try:
 except AttributeError:
     _fromUtf8 = lambda s: s
 
-class Ui_Settings(object):
-    def setupUi(self, Settings):
-        Settings.setObjectName(_fromUtf8("Settings"))
-        Settings.resize(665, 289)
-        Settings.setWindowTitle(QtGui.QApplication.translate("Settings", "Custom Launcher", None, QtGui.QApplication.UnicodeUTF8))
-        self.gridLayout = QtGui.QGridLayout(Settings)
+class Ui_ActionManager(object):
+    def setupUi(self, ActionManager):
+        ActionManager.setObjectName(_fromUtf8("ActionManager"))
+        ActionManager.resize(665, 289)
+        self.gridLayout = QtGui.QGridLayout(ActionManager)
         self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
-        self.buttonBox = QtGui.QDialogButtonBox(Settings)
+        self.buttonBox = QtGui.QDialogButtonBox(ActionManager)
         self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
         self.buttonBox.setStandardButtons(QtGui.QDialogButtonBox.Cancel|QtGui.QDialogButtonBox.Ok)
         self.buttonBox.setObjectName(_fromUtf8("buttonBox"))
         self.gridLayout.addWidget(self.buttonBox, 2, 1, 1, 1)
-        self.addActionButton = QtGui.QPushButton(Settings)
-        self.addActionButton.setText(QtGui.QApplication.translate("Settings", "Add action", None, QtGui.QApplication.UnicodeUTF8))
+        self.addActionButton = QtGui.QPushButton(ActionManager)
         self.addActionButton.setObjectName(_fromUtf8("addActionButton"))
         self.gridLayout.addWidget(self.addActionButton, 2, 0, 1, 1)
-        self.scrollArea = QtGui.QScrollArea(Settings)
+        self.scrollArea = QtGui.QScrollArea(ActionManager)
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
         self.scrollAreaWidgetContents = QtGui.QWidget()
@@ -47,11 +45,12 @@ class Ui_Settings(object):
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.gridLayout.addWidget(self.scrollArea, 0, 0, 1, 2)
 
-        self.retranslateUi(Settings)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), Settings.accept)
-        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), Settings.reject)
-        QtCore.QMetaObject.connectSlotsByName(Settings)
+        self.retranslateUi(ActionManager)
+        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("accepted()")), ActionManager.accept)
+        QtCore.QObject.connect(self.buttonBox, QtCore.SIGNAL(_fromUtf8("rejected()")), ActionManager.reject)
+        QtCore.QMetaObject.connectSlotsByName(ActionManager)
 
-    def retranslateUi(self, Settings):
-        pass
+    def retranslateUi(self, ActionManager):
+        ActionManager.setWindowTitle(QtGui.QApplication.translate("ActionManager", "Custom Launcher", None, QtGui.QApplication.UnicodeUTF8))
+        self.addActionButton.setText(QtGui.QApplication.translate("ActionManager", "Add action", None, QtGui.QApplication.UnicodeUTF8))
 
