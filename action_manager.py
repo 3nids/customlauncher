@@ -19,7 +19,7 @@ except AttributeError:
 
 
 # create the dialog to connect layers
-class actionManager(QDialog, Ui_Settings):
+class actionManager(QDialog, Ui_ActionManager):
 	def __init__(self,iface):
 		QDialog.__init__(self)
 		self.setupUi(self)
