@@ -11,7 +11,7 @@ def name():
 def description():
     return "A QGIS plugin to customize actions to launch your preferred apps or commands from QGIS."
 def version():
-    return "Version 1.2.0"
+    return "Version 1.2.1"
 def icon():
     return "icons/customlauncher.png"
 def qgisMinimumVersion():
